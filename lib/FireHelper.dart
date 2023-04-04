@@ -13,4 +13,6 @@ class AuthHelper {
       return e.message;
     }
   }
+
+  void signIn({required String email, required String password}) {}
 }
