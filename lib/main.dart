@@ -1,4 +1,4 @@
-import 'package:fireapp/signup.dart';
+import 'package:fireapp/log.dart';
 import 'package:fireapp/welcome.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -12,6 +12,6 @@ void main() async {
     useInheritedMediaQuery: true,
     theme: ThemeData(primarySwatch: Colors.blue),
     debugShowCheckedModeBanner: false,
-    home: user == null ? Log() : Welcome(),
+    home: user == null ? Firelog() : Welcome(),
   ));
 }
