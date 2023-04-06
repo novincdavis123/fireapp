@@ -31,8 +31,10 @@ class _LogState extends State<Log> {
                         .showSnackBar(SnackBar(content: Text(result)));
                   }
                 });
+                email.text='';
+                pass.text='';
               },
-              child: Text('Login'))
+              child: Text('Sign up'))
         ],
       ),
     );

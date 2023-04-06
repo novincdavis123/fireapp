@@ -1,4 +1,6 @@
 import 'package:fireapp/FireHelper.dart';
+import 'package:fireapp/signup.dart';
+import 'package:fireapp/welcome.dart';
 import 'package:flutter/material.dart';
 
 class Firelog extends StatefulWidget {
@@ -22,9 +24,27 @@ class _FirelogState extends State<Firelog> {
               onPressed: () {
                 String eemail = email.text.trim();
                 String pwd = pass.text.trim();
-                AuthHelper().signIn(email:eemail,password:pwd);
+                AuthHelper()
+                    .signIn(email: eemail, password: pwd)
+                    .then((result) {
+                  if (result == null) {
+                    Navigator.pushReplacement(context,
+                        MaterialPageRoute(builder: (context) => Welcome()));
+                  } else {
+                    ScaffoldMessenger.of(context)
+                        .showSnackBar(SnackBar(content: Text(result)));
+                  }
+                });
+                email.text='';
+                pass.text='';
               },
-              child: Text('Login'))
+              child: Text('Login')),
+          TextButton(
+              onPressed: () {
+                Navigator.push(
+                    context, MaterialPageRoute(builder: (context) => Log()));
+              },
+              child: Text('Regnow'))
         ],
       ),
     );
